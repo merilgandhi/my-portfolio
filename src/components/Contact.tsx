@@ -157,7 +157,7 @@ export const Contact = () => {
                 </a>
                 
                 <a
-                  href="mailto:contact@merilgandhi.com"
+                  href="mailto:meril.gandhi03@gmail.com"
                   className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
@@ -165,7 +165,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <p className="text-white text-sm">Email</p>
-                    <p className="text-white/50 text-xs">Get in touch</p>
+                    <p className="text-white/50 text-xs">meril.gandhi03@gmail.com</p>
                   </div>
                 </a>
               </div>
