@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Github, Linkedin, Mail, Download, CheckCircle } from "lucide-react";
+import { Github, Linkedin, Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,7 +18,6 @@ export const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
@@ -39,54 +38,31 @@ export const Contact = () => {
     }));
   };
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      url: "https://github.com/merilgandhi",
-      icon: Github,
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/merilgandhi",
-      icon: Linkedin,
-    },
-    {
-      name: "Email",
-      url: "mailto:contact@example.com",
-      icon: Mail,
-    },
-  ];
-
   return (
-    <section id="contact" className="py-24 px-4 relative">
-      {/* Background accent */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto max-w-6xl relative z-10">
+    <section id="contact" className="py-24 px-4 md:px-8 lg:px-16">
+      <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="text-primary font-mono text-sm tracking-widest uppercase">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Get in Touch
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Have a project in mind or just want to say hello? Feel free to reach out!
+          <p className="text-white/50 max-w-xl">
+            Have a project in mind or just want to say hello? Feel free to reach out.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact form */}
-          <div className="glass rounded-3xl p-8">
-            <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Contact form - Git styled */}
+          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10">
+            <div className="flex items-center gap-2 mb-6 text-white/50 text-sm font-mono">
+              <span className="text-green-400">$</span>
+              <span>git commit -m "new message"</span>
+            </div>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
+                <label htmlFor="name" className="block text-sm text-white/50 mb-2 font-mono">
+                  --author
                 </label>
                 <Input
                   id="name"
@@ -95,12 +71,12 @@ export const Contact = () => {
                   onChange={handleChange}
                   placeholder="Your name"
                   required
-                  className="bg-secondary/50 border-border focus:border-primary"
+                  className="bg-transparent border-white/10 text-white placeholder:text-white/30 focus:border-white/30"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
+                <label htmlFor="email" className="block text-sm text-white/50 mb-2 font-mono">
+                  --email
                 </label>
                 <Input
                   id="email"
@@ -110,12 +86,12 @@ export const Contact = () => {
                   onChange={handleChange}
                   placeholder="your@email.com"
                   required
-                  className="bg-secondary/50 border-border focus:border-primary"
+                  className="bg-transparent border-white/10 text-white placeholder:text-white/30 focus:border-white/30"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
+                <label htmlFor="message" className="block text-sm text-white/50 mb-2 font-mono">
+                  --message
                 </label>
                 <Textarea
                   id="message"
@@ -123,71 +99,76 @@ export const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Your message..."
-                  rows={5}
+                  rows={4}
                   required
-                  className="bg-secondary/50 border-border focus:border-primary resize-none"
+                  className="bg-transparent border-white/10 text-white placeholder:text-white/30 focus:border-white/30 resize-none"
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full glow"
                 disabled={isSubmitting}
+                className="w-full bg-white text-black hover:bg-white/90 rounded-lg"
               >
                 {isSubmitting ? (
-                  <>
-                    <CheckCircle className="mr-2 w-4 h-4 animate-spin" />
-                    Sending...
-                  </>
+                  "Pushing..."
                 ) : (
                   <>
                     <Send className="mr-2 w-4 h-4" />
-                    Send Message
+                    git push
                   </>
                 )}
               </Button>
             </form>
           </div>
 
-          {/* Contact info */}
-          <div className="space-y-8">
-            {/* Social links */}
-            <div className="glass rounded-3xl p-8">
-              <h3 className="text-xl font-semibold mb-6">Connect with Me</h3>
+          {/* Social links */}
+          <div className="space-y-6">
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10">
+              <h3 className="text-lg font-semibold text-white mb-6">Connect</h3>
               <div className="space-y-4">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-primary/10 transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <link.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="font-medium group-hover:text-primary transition-colors">
-                        {link.name}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {link.name === "Email" ? "contact@example.com" : `@merilgandhi`}
-                      </p>
-                    </div>
-                  </a>
-                ))}
+                <a
+                  href="https://github.com/merilgandhi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                    <Github className="w-5 h-5 text-white/70" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm">GitHub</p>
+                    <p className="text-white/50 text-xs">@merilgandhi</p>
+                  </div>
+                </a>
+                
+                <a
+                  href="https://www.linkedin.com/in/merilgandhi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                    <Linkedin className="w-5 h-5 text-white/70" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm">LinkedIn</p>
+                    <p className="text-white/50 text-xs">@merilgandhi</p>
+                  </div>
+                </a>
+                
+                <a
+                  href="mailto:contact@merilgandhi.com"
+                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                    <Mail className="w-5 h-5 text-white/70" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm">Email</p>
+                    <p className="text-white/50 text-xs">Get in touch</p>
+                  </div>
+                </a>
               </div>
-            </div>
-
-            {/* Resume download */}
-            <div className="glass rounded-3xl p-8 text-center">
-              <h3 className="text-xl font-semibold mb-4">Download Resume</h3>
-              <p className="text-muted-foreground mb-6">
-                Get a copy of my resume to learn more about my experience and skills.
-              </p>
-              <Button variant="outline" className="gap-2 hover:glow">
-                <Download className="w-4 h-4" />
-                Download CV
-              </Button>
             </div>
           </div>
         </div>

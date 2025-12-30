@@ -1,106 +1,142 @@
-import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+// Tech icons floating on the right side
+const FloatingIcons = () => (
+  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full pointer-events-none hidden lg:block">
+    {/* MongoDB Leaf */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" 
+      alt="MongoDB"
+      className="absolute w-10 h-10 floating"
+      style={{ top: '15%', left: '25%' }}
+    />
+    
+    {/* TypeScript */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" 
+      alt="TypeScript"
+      className="absolute w-14 h-14 floating-delayed"
+      style={{ top: '22%', left: '50%' }}
+    />
+    
+    {/* Tailwind */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" 
+      alt="Tailwind CSS"
+      className="absolute w-10 h-10 floating-delayed-2"
+      style={{ top: '18%', left: '75%' }}
+    />
+    
+    {/* Git */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" 
+      alt="Git"
+      className="absolute w-12 h-12 floating-delayed-3"
+      style={{ top: '35%', left: '70%' }}
+    />
+    
+    {/* MySQL */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" 
+      alt="MySQL"
+      className="absolute w-10 h-10 floating"
+      style={{ top: '45%', left: '20%' }}
+    />
+    
+    {/* JavaScript */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+      alt="JavaScript"
+      className="absolute w-12 h-12 floating-delayed"
+      style={{ top: '45%', left: '40%' }}
+    />
+    
+    {/* CSS3 */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" 
+      alt="CSS3"
+      className="absolute w-10 h-10 floating-delayed-2"
+      style={{ top: '45%', left: '60%' }}
+    />
+    
+    {/* React */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+      alt="React"
+      className="absolute w-14 h-14 floating-delayed-3"
+      style={{ top: '42%', left: '80%' }}
+    />
+    
+    {/* Node.js */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" 
+      alt="Node.js"
+      className="absolute w-16 h-16 floating"
+      style={{ top: '62%', left: '45%' }}
+    />
+    
+    {/* GitHub */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+      alt="GitHub"
+      className="absolute w-10 h-10 floating-delayed invert"
+      style={{ top: '58%', left: '75%' }}
+    />
+    
+    {/* Python */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+      alt="Python"
+      className="absolute w-10 h-10 floating-delayed-2"
+      style={{ top: '75%', left: '35%' }}
+    />
+    
+    {/* Java */}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" 
+      alt="Java"
+      className="absolute w-12 h-12 floating-delayed-3"
+      style={{ top: '78%', left: '60%' }}
+    />
+  </div>
+);
 
 export const Hero = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4"
+      className="min-h-screen flex items-center relative overflow-hidden px-4 md:px-8 lg:px-16"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl floating" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl floating-delayed" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pulse-glow" />
-      </div>
+      <FloatingIcons />
 
-      {/* Floating tech icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[15%] left-[10%] text-primary/20 text-6xl floating">⚛️</div>
-        <div className="absolute top-[25%] right-[15%] text-accent/20 text-5xl floating-delayed">🚀</div>
-        <div className="absolute bottom-[30%] left-[20%] text-primary/20 text-4xl floating">💻</div>
-        <div className="absolute bottom-[20%] right-[10%] text-accent/20 text-5xl floating-delayed">🔥</div>
-      </div>
+      <div className="max-w-3xl relative z-10">
+        {/* Main heading */}
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+          Hi, I'm Meril
+        </h1>
 
-      <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="text-center space-y-8">
-          {/* Greeting badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium animate-fade-in-up opacity-0 stagger-1">
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            Available for opportunities
-          </div>
+        {/* Subtitle */}
+        <p className="text-lg md:text-xl text-white/70 max-w-xl mb-4 leading-relaxed">
+          Intern, interested in Web Development, coding, anything which brings a change. My other interests include exploring new technologies & building projects.
+        </p>
 
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in-up opacity-0 stagger-2">
-            Hi, I'm{" "}
-            <span className="gradient-text">Meril Gandhi</span>
-          </h1>
+        {/* Connect line */}
+        <p className="text-sm text-white/50 mb-8">
+          Let's connect if you're interested in my work.
+        </p>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up opacity-0 stagger-3">
-            <span className="text-primary font-semibold">Intern</span> • Web Developer • Building Digital Experiences
-          </p>
-
-          {/* Description */}
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto animate-fade-in-up opacity-0 stagger-4">
-            Passionate about crafting clean, responsive, and user-friendly web applications using modern technologies.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up opacity-0 stagger-5">
-            <Button
-              size="lg"
-              onClick={scrollToProjects}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 glow"
-            >
-              View My Work
-              <ArrowDown className="ml-2 w-4 h-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={scrollToContact}
-              className="border-border hover:bg-secondary"
-            >
-              Get in Touch
-            </Button>
-          </div>
-
-          {/* Social links */}
-          <div className="flex items-center justify-center gap-4 animate-fade-in-up opacity-0 stagger-6">
-            <a
-              href="https://github.com/merilgandhi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full glass hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/merilgandhi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full glass hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 animate-bounce">
-        <ArrowDown className="w-6 h-6 text-muted-foreground" />
+        {/* CTA Button */}
+        <Button
+          onClick={scrollToContact}
+          variant="outline"
+          className="bg-transparent border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 rounded-full px-6"
+        >
+          Get in touch
+        </Button>
       </div>
     </section>
   );
