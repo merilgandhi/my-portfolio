@@ -9,7 +9,7 @@ const navItems = [
 ];
 
 const socialItems = [
-  { icon: FileText, label: "Resume", url: "#" },
+  { icon: FileText, label: "Resume", url: "/Meril_Gandhi_resume.pdf", download: true },
   { icon: Github, label: "GitHub", url: "https://github.com/merilgandhi" },
   { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/merilgandhi" },
 ];
@@ -44,6 +44,7 @@ export const Navigation = () => {
             href={item.url}
             target={item.url.startsWith("http") ? "_blank" : undefined}
             rel={item.url.startsWith("http") ? "noopener noreferrer" : undefined}
+            download={item.download ? true : undefined}
             className="p-3 rounded-full hover:bg-white/10 transition-all duration-200 group"
             aria-label={item.label}
           >
