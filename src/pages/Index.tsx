@@ -14,7 +14,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+      {/* Global scan line effect */}
+      <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03]">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,hsl(var(--primary)/0.1)_2px,hsl(var(--primary)/0.1)_4px)]" />
+      </div>
+      
       <Navigation />
       <main>
         <Hero />

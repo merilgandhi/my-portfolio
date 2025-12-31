@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Mail, Send, Sparkles, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Sparkles, ArrowUpRight, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -81,20 +81,22 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="py-24 px-4 md:px-8 lg:px-16 relative overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
+      {/* Background effects */}
+      <div className="absolute inset-0 grid-bg opacity-30" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
         <div className="mb-16 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
-            <Sparkles className="w-4 h-4 text-white/70" />
-            <span className="text-sm text-white/70">Let's collaborate</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
+            <MessageSquare className="w-4 h-4 text-primary" />
+            <span className="text-sm text-primary font-medium">Let's Connect</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get in Touch
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Get in <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-white/50 max-w-md mx-auto">
+          <p className="text-muted-foreground max-w-md mx-auto">
             Have a project in mind or just want to say hello? I'd love to hear from you.
           </p>
         </div>
@@ -102,18 +104,22 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Contact form */}
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-8 space-y-6">
+              {/* Corner accents */}
+              <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-primary/40 rounded-tl-lg" />
+              <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-secondary/40 rounded-br-lg" />
+              
               {/* Name field */}
               <div className="relative group">
                 <label 
                   htmlFor="name" 
-                  className={`absolute left-4 transition-all duration-300 pointer-events-none ${
+                  className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
                     focusedField === 'name' || formData.name 
-                      ? '-top-2.5 text-xs text-white/70 bg-background px-2' 
-                      : 'top-4 text-white/40'
+                      ? '-top-2.5 text-xs text-primary bg-card px-2' 
+                      : 'top-4 text-muted-foreground'
                   }`}
                 >
-                  Your Name
+                  {'// '}Your Name
                 </label>
                 <Input
                   id="name"
@@ -123,24 +129,23 @@ export const Contact = () => {
                   onFocus={() => setFocusedField('name')}
                   onBlur={() => setFocusedField(null)}
                   required
-                  className="h-14 bg-white/[0.03] border-white/10 text-white rounded-xl 
-                    focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300
-                    hover:border-white/20 hover:bg-white/[0.04]"
+                  className="h-14 bg-background/50 border-primary/20 text-foreground rounded-xl 
+                    focus:border-primary/50 focus:bg-background/80 transition-all duration-300
+                    hover:border-primary/30 placeholder:text-transparent"
                 />
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ padding: '1px', mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', maskComposite: 'exclude' }} />
               </div>
 
               {/* Email field */}
               <div className="relative group">
                 <label 
                   htmlFor="email" 
-                  className={`absolute left-4 transition-all duration-300 pointer-events-none ${
+                  className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
                     focusedField === 'email' || formData.email 
-                      ? '-top-2.5 text-xs text-white/70 bg-background px-2' 
-                      : 'top-4 text-white/40'
+                      ? '-top-2.5 text-xs text-primary bg-card px-2' 
+                      : 'top-4 text-muted-foreground'
                   }`}
                 >
-                  Your Email
+                  {'// '}Your Email
                 </label>
                 <Input
                   id="email"
@@ -151,9 +156,9 @@ export const Contact = () => {
                   onFocus={() => setFocusedField('email')}
                   onBlur={() => setFocusedField(null)}
                   required
-                  className="h-14 bg-white/[0.03] border-white/10 text-white rounded-xl 
-                    focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300
-                    hover:border-white/20 hover:bg-white/[0.04]"
+                  className="h-14 bg-background/50 border-primary/20 text-foreground rounded-xl 
+                    focus:border-primary/50 focus:bg-background/80 transition-all duration-300
+                    hover:border-primary/30 placeholder:text-transparent"
                 />
               </div>
 
@@ -163,11 +168,11 @@ export const Contact = () => {
                   htmlFor="message" 
                   className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
                     focusedField === 'message' || formData.message 
-                      ? '-top-2.5 text-xs text-white/70 bg-background px-2' 
-                      : 'top-4 text-white/40'
+                      ? '-top-2.5 text-xs text-primary bg-card px-2' 
+                      : 'top-4 text-muted-foreground'
                   }`}
                 >
-                  Your Message
+                  {'// '}Your Message
                 </label>
                 <Textarea
                   id="message"
@@ -178,9 +183,9 @@ export const Contact = () => {
                   onBlur={() => setFocusedField(null)}
                   rows={5}
                   required
-                  className="pt-5 bg-white/[0.03] border-white/10 text-white rounded-xl resize-none
-                    focus:border-white/30 focus:bg-white/[0.05] transition-all duration-300
-                    hover:border-white/20 hover:bg-white/[0.04]"
+                  className="pt-5 bg-background/50 border-primary/20 text-foreground rounded-xl resize-none
+                    focus:border-primary/50 focus:bg-background/80 transition-all duration-300
+                    hover:border-primary/30 placeholder:text-transparent"
                 />
               </div>
 
@@ -188,14 +193,14 @@ export const Contact = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-14 bg-white text-black hover:bg-white/90 rounded-xl font-medium
-                  transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]
+                className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl font-medium
+                  transition-all duration-300 neon-glow hover:scale-[1.02]
                   disabled:opacity-50 disabled:cursor-not-allowed group"
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
-                    <span className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                    Sending...
+                    <span className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                    Transmitting...
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
@@ -209,7 +214,7 @@ export const Contact = () => {
 
           {/* Social links */}
           <div className="lg:col-span-2 space-y-4">
-            <p className="text-white/50 text-sm mb-6">Or reach out directly through:</p>
+            <p className="text-muted-foreground text-sm mb-6">Or reach out directly through:</p>
             
             {socialLinks.map((link) => (
               <a
@@ -217,30 +222,30 @@ export const Contact = () => {
                 href={link.href}
                 target={link.name !== "Email" ? "_blank" : undefined}
                 rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
-                className="group flex items-center gap-4 p-4 rounded-xl glass
-                  hover:bg-white/[0.08] transition-all duration-300 hover:scale-[1.02]"
+                className="group flex items-center gap-4 p-4 rounded-xl glass-card
+                  hover-glow transition-all duration-300 hover:scale-[1.02]"
               >
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center
-                  group-hover:bg-white/10 transition-colors duration-300">
-                  <link.icon className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+                <div className="w-12 h-12 rounded-xl glass neon-border flex items-center justify-center
+                  group-hover:bg-primary/20 transition-colors duration-300">
+                  <link.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-medium">{link.name}</p>
-                  <p className="text-white/50 text-sm truncate">{link.username}</p>
+                  <p className="text-foreground font-medium group-hover:text-primary transition-colors">{link.name}</p>
+                  <p className="text-muted-foreground text-sm truncate">{link.username}</p>
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-white/70 
+                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary 
                   transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             ))}
 
             {/* Availability indicator */}
-            <div className="mt-8 p-4 rounded-xl glass">
+            <div className="mt-8 glass-card rounded-xl p-6">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                 </span>
-                <span className="text-white/70 text-sm">Available for new opportunities</span>
+                <span className="text-muted-foreground text-sm">Available for new opportunities</span>
               </div>
             </div>
           </div>
