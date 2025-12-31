@@ -14,9 +14,45 @@ export default {
   	},
   	extend: {
   		fontFamily: {
-  			sans: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-  			display: ['Orbitron', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-  			mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+  			sans: [
+  				'Lato',
+  				'ui-sans-serif',
+  				'system-ui',
+  				'-apple-system',
+  				'BlinkMacSystemFont',
+  				'Segoe UI',
+  				'Roboto',
+  				'Helvetica Neue',
+  				'Arial',
+  				'Noto Sans',
+  				'sans-serif'
+  			],
+  			display: [
+  				'Orbitron',
+  				'ui-sans-serif',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			mono: [
+  				'Fira Code',
+  				'ui-monospace',
+  				'SFMono-Regular',
+  				'Menlo',
+  				'Monaco',
+  				'Consolas',
+  				'Liberation Mono',
+  				'Courier New',
+  				'monospace'
+  			],
+  			serif: [
+  				'EB Garamond',
+  				'ui-serif',
+  				'Georgia',
+  				'Cambria',
+  				'Times New Roman',
+  				'Times',
+  				'serif'
+  			]
   		},
   		colors: {
   			border: 'hsl(var(--border))',
@@ -51,7 +87,7 @@ export default {
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
-  			},
+  			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -60,23 +96,46 @@ export default {
   		},
   		keyframes: {
   			'accordion-down': {
-  				from: { height: '0' },
-  				to: { height: 'var(--radix-accordion-content-height)' }
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
   			},
   			'accordion-up': {
-  				from: { height: 'var(--radix-accordion-content-height)' },
-  				to: { height: '0' }
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
   			},
   			'fade-in': {
-  				'0%': { opacity: '0', transform: 'translateY(10px)' },
-  				'100%': { opacity: '1', transform: 'translateY(0)' }
-  			},
+  				'0%': {
+  					opacity: '0',
+  					transform: 'translateY(10px)'
+  				},
+  				'100%': {
+  					opacity: '1',
+  					transform: 'translateY(0)'
+  				}
+  			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-  			'fade-in': 'fade-in 0.5s ease-out',
+  			'fade-in': 'fade-in 0.5s ease-out'
   		},
+  		boxShadow: {
+  			'2xs': 'var(--shadow-2xs)',
+  			xs: 'var(--shadow-xs)',
+  			sm: 'var(--shadow-sm)',
+  			md: 'var(--shadow-md)',
+  			lg: 'var(--shadow-lg)',
+  			xl: 'var(--shadow-xl)',
+  			'2xl': 'var(--shadow-2xl)'
+  		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
