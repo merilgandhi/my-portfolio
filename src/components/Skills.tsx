@@ -13,6 +13,8 @@ const skills = [
   { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
 ];
 
 export const Skills = () => {
@@ -29,16 +31,16 @@ export const Skills = () => {
             <Cpu className="w-4 h-4 text-primary" />
             <span className="text-sm text-primary font-medium">Tech Stack</span>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
             Skills & <span className="gradient-text">Expertise</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl">
+          <p className="text-muted-foreground max-w-2xl md:text-lg">
             Technologies and tools I use to bring ideas to life.
           </p>
         </div>
 
         {/* Skills grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
           {skills.map((skill, index) => (
             <div
               key={skill.name}

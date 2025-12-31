@@ -54,8 +54,8 @@ export const About = () => {
           </div>
 
           {/* Highlights sidebar */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="glass-card rounded-2xl p-6">
+          <div className="lg:col-span-2 space-y-4 p-12">
+            <div className="glass-card rounded-2xl p-6 hover-glow transition-all duration-300">
               <h3 className="font-display text-lg font-semibold text-foreground mb-6">
                 {'// '}<span className="text-primary">Core Values</span>
               </h3>
@@ -80,14 +80,6 @@ export const About = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Stats or additional info */}
-            <div className="glass-card rounded-2xl p-6">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm">Currently building cool stuff</span>
               </div>
             </div>
           </div>

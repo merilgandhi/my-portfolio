@@ -12,9 +12,9 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo/Name */}
           <div className="flex items-center gap-2">
-            <span className="font-display text-xl font-bold gradient-text">MG</span>
+            <img src="Meril_gandhi.jpeg" alt="Meril Gandhi Logo" className="w-10 h-10 rounded-full" />
             <span className="text-muted-foreground">|</span>
-            <span className="text-sm text-muted-foreground">
+            <span className="text-md text-muted-foreground ">
               © {currentYear} Meril Gandhi
             </span>
           </div>
@@ -39,18 +39,8 @@ export const Footer = () => {
             >
               <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-secondary transition-colors" />
             </a>
-          </div>
-
-          {/* Credits */}
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>Built with</span>
-            <Heart className="w-4 h-4 text-destructive fill-destructive animate-pulse" />
-            <span>using</span>
-            <span className="text-primary">React</span>
-            <span>+</span>
-            <span className="text-secondary">Tailwind</span>
-          </div>
-        </div>
+          </div>      
+       </div>
       </div>
     </footer>
   );

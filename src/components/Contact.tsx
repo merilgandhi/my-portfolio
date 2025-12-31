@@ -89,10 +89,6 @@ export const Contact = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
         <div className="mb-16 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
-            <MessageSquare className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">Let's Connect</span>
-          </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             Get in <span className="gradient-text">Touch</span>
           </h2>
@@ -237,17 +233,6 @@ export const Contact = () => {
                   transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             ))}
-
-            {/* Availability indicator */}
-            <div className="mt-8 glass-card rounded-xl p-6">
-              <div className="flex items-center gap-3">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                </span>
-                <span className="text-muted-foreground text-sm">Available for new opportunities</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
