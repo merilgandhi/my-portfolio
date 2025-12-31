@@ -47,16 +47,15 @@ export const Projects = () => {
               <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-secondary/40 rounded-br-xl" />
               
               {/* Project number */}
-              <div className="absolute top-6 right-6 font-display text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
+              <div className="absolute top-6 right-6 font-display text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors mt-2">
                 0{project.id}
               </div>
-              
               <div className="relative z-10">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
                   <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 md:mr-16">
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -83,7 +82,6 @@ export const Projects = () => {
                 <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl">
                   {project.description}
                 </p>
-                
                 <div className="flex flex-wrap gap-3">
                   {project.techStack.map((tech) => (
                     <span

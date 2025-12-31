@@ -17,32 +17,86 @@ const HexagonGrid = () => (
   </div>
 );
 
-// Tech icons with neon glow effect
 const FloatingIcons = () => (
   <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full pointer-events-none hidden lg:block">
-    {[
-      { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", pos: { top: '20%', left: '50%' }, size: 'w-16 h-16', delay: '' },
-      { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", pos: { top: '35%', left: '70%' }, size: 'w-12 h-12', delay: 'floating-delayed' },
-      { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", pos: { top: '55%', left: '40%' }, size: 'w-14 h-14', delay: 'floating-delayed-2' },
-      { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", pos: { top: '45%', left: '60%' }, size: 'w-10 h-10', delay: 'floating-delayed-3' },
-      { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", pos: { top: '70%', left: '55%' }, size: 'w-12 h-12', delay: '' },
-      { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", pos: { top: '25%', left: '30%' }, size: 'w-10 h-10', delay: 'floating-delayed' },
-    ].map((icon, i) => (
-      <div
-        key={i}
-        className={`absolute ${icon.size} ${icon.delay || 'floating'} group`}
-        style={icon.pos}
-      >
-        <div className="relative">
-          <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl group-hover:bg-primary/40 transition-all duration-500" />
-          <img 
-            src={icon.src}
-            alt=""
-            className="relative w-full h-full drop-shadow-[0_0_10px_hsl(var(--primary)/0.5)]"
-          />
-        </div>
-      </div>
-    ))}
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" 
+      alt="MongoDB"
+      className="absolute w-16 h-16 floating"
+      style={{ top: '25%', left: '32%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" 
+      alt="TypeScript"
+      className="absolute w-14 h-14 floating-delayed"
+      style={{ top: '22%', left: '50%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" 
+      alt="Tailwind CSS"
+      className="absolute w-12 h-12 floating-delayed-2"
+      style={{ top: '25%', left: '75%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
+      alt="JavaScript"
+      className="absolute w-12 h-12 floating-delayed"
+      style={{ top: '43%', left: '42%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" 
+      alt="CSS3"
+      className="absolute w-12 h-12 floating-delayed-2"
+      style={{ top: '43%', left: '60%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+      alt="React"
+      className="absolute w-14 h-14 floating-delayed-3"
+      style={{ top: '42%', left: '80%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" 
+      alt="Node.js"
+      className="absolute w-14 h-14 floating"
+      style={{ top: '60%', left: '50%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+      alt="GitHub"
+      className="absolute w-10 h-10 floating-delayed invert"
+      style={{ top: '60%', left: '78%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+      alt="Python"
+      className="absolute w-12 h-12 floating-delayed-2"
+      style={{ top: '75%', left: '32%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" 
+      alt="Java"
+      className="absolute w-14 h-14 floating-delayed-3"
+      style={{ top: '75%', left: '70%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" 
+      alt="Figma"
+      className="absolute w-12 h-12 floating-delayed-2"
+      style={{ top: '42%', left: '23%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" 
+      alt="C++"
+      className="absolute w-12 h-12 floating-delayed-2"
+      style={{ top: '60%', left: '25%' }}
+    />
+    <img 
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" 
+      alt="Docker"
+      className="absolute w-14 h-14 floating-delayed-3"
+      style={{ top: '80%', left: '50%' }}
+    />
   </div>
 );
 
@@ -60,23 +114,14 @@ export const Hero = () => {
       <FloatingIcons />
 
       <div className="max-w-4xl relative z-10">
-        {/* Status badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-8">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-          </span>
-          <span className="text-sm text-primary font-medium">Open for opportunities</span>
-        </div>
-
         {/* Main heading */}
-        <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6">
+        <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6 px-10">
           <span className="text-foreground">Hi, I'm </span>
           <span className="gradient-text flicker">Meril</span>
         </h1>
 
         {/* Subtitle with terminal style */}
-        <div className="flex items-start gap-3 mb-6">
+        <div className="flex items-start gap-3 mb-6 px-10">
           <Terminal className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
             <span className="text-primary">{'>'}</span> Web Developer passionate about building 
@@ -86,13 +131,13 @@ export const Hero = () => {
         </div>
 
         {/* Sub text */}
-        <p className="text-sm text-muted-foreground/70 mb-8 flex items-center gap-2">
+        <p className="text-sm text-muted-foreground/70 mb-8 flex items-center gap-2 px-10">
           <Zap className="w-4 h-4 text-secondary" />
           Exploring new technologies & building projects that make an impact
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 px-10">
           <Button
             onClick={scrollToContact}
             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl px-8 h-12 font-medium
