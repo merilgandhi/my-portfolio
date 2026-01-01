@@ -102,9 +102,8 @@ export const Contact = () => {
 
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Contact form */}
-          <ScrollReveal delay={100}>
-            <div className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-8 space-y-6">
+          <ScrollReveal delay={100} className="lg:col-span-3">
+            <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-8 space-y-6 relative">
                 {/* Corner accents */}
                 <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-primary/40 rounded-tl-lg" />
                 <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-secondary/40 rounded-br-lg" />
@@ -210,12 +209,11 @@ export const Contact = () => {
                   )}
                 </Button>
               </form>
-            </div>
           </ScrollReveal>
 
           {/* Social links */}
-          <ScrollReveal delay={200}>
-            <div className="lg:col-span-2 space-y-4">
+          <ScrollReveal delay={200} className="lg:col-span-2">
+            <div className="space-y-4">
               <p className="text-muted-foreground text-sm mb-6">Or reach out directly through:</p>
               
               {socialLinks.map((link) => (
