@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Github, Linkedin, Mail, Send, Sparkles, ArrowUpRight, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, Send, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { ScrollReveal } from "./ScrollReveal";
 
 export const Contact = () => {
   const { toast } = useToast();
@@ -88,152 +89,158 @@ export const Contact = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
-        <div className="mb-16 text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Get in <span className="gradient-text">Touch</span>
-          </h2>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            Have a project in mind or just want to say hello? I'd love to hear from you.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="mb-16 text-center">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Get in <span className="gradient-text animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--secondary)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent">Touch</span>
+            </h2>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Have a project in mind or just want to say hello? I'd love to hear from you.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Contact form */}
-          <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-8 space-y-6">
-              {/* Corner accents */}
-              <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-primary/40 rounded-tl-lg" />
-              <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-secondary/40 rounded-br-lg" />
-              
-              {/* Name field */}
-              <div className="relative group">
-                <label 
-                  htmlFor="name" 
-                  className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
-                    focusedField === 'name' || formData.name 
-                      ? '-top-2.5 text-xs text-primary bg-card px-2' 
-                      : 'top-4 text-muted-foreground'
-                  }`}
-                >
-                  {'// '}Your Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('name')}
-                  onBlur={() => setFocusedField(null)}
-                  required
-                  className="h-14 bg-background/50 border-primary/20 text-foreground rounded-xl 
-                    focus:border-primary/50 focus:bg-background/80 transition-all duration-300
-                    hover:border-primary/30 placeholder:text-transparent"
-                />
-              </div>
+          <ScrollReveal delay={100}>
+            <div className="lg:col-span-3">
+              <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-8 space-y-6">
+                {/* Corner accents */}
+                <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-primary/40 rounded-tl-lg" />
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-secondary/40 rounded-br-lg" />
+                
+                {/* Name field */}
+                <div className="relative group">
+                  <label 
+                    htmlFor="name" 
+                    className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
+                      focusedField === 'name' || formData.name 
+                        ? '-top-2.5 text-xs text-primary bg-card px-2' 
+                        : 'top-4 text-muted-foreground'
+                    }`}
+                  >
+                    {'// '}Your Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('name')}
+                    onBlur={() => setFocusedField(null)}
+                    required
+                    className="h-14 bg-background/50 border-primary/20 text-foreground rounded-xl 
+                      focus:border-primary/50 focus:bg-background/80 transition-all duration-300
+                      hover:border-primary/30 placeholder:text-transparent"
+                  />
+                </div>
 
-              {/* Email field */}
-              <div className="relative group">
-                <label 
-                  htmlFor="email" 
-                  className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
-                    focusedField === 'email' || formData.email 
-                      ? '-top-2.5 text-xs text-primary bg-card px-2' 
-                      : 'top-4 text-muted-foreground'
-                  }`}
-                >
-                  {'// '}Your Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('email')}
-                  onBlur={() => setFocusedField(null)}
-                  required
-                  className="h-14 bg-background/50 border-primary/20 text-foreground rounded-xl 
-                    focus:border-primary/50 focus:bg-background/80 transition-all duration-300
-                    hover:border-primary/30 placeholder:text-transparent"
-                />
-              </div>
+                {/* Email field */}
+                <div className="relative group">
+                  <label 
+                    htmlFor="email" 
+                    className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
+                      focusedField === 'email' || formData.email 
+                        ? '-top-2.5 text-xs text-primary bg-card px-2' 
+                        : 'top-4 text-muted-foreground'
+                    }`}
+                  >
+                    {'// '}Your Email
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('email')}
+                    onBlur={() => setFocusedField(null)}
+                    required
+                    className="h-14 bg-background/50 border-primary/20 text-foreground rounded-xl 
+                      focus:border-primary/50 focus:bg-background/80 transition-all duration-300
+                      hover:border-primary/30 placeholder:text-transparent"
+                  />
+                </div>
 
-              {/* Message field */}
-              <div className="relative group">
-                <label 
-                  htmlFor="message" 
-                  className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
-                    focusedField === 'message' || formData.message 
-                      ? '-top-2.5 text-xs text-primary bg-card px-2' 
-                      : 'top-4 text-muted-foreground'
-                  }`}
-                >
-                  {'// '}Your Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('message')}
-                  onBlur={() => setFocusedField(null)}
-                  rows={5}
-                  required
-                  className="pt-5 bg-background/50 border-primary/20 text-foreground rounded-xl resize-none
-                    focus:border-primary/50 focus:bg-background/80 transition-all duration-300
-                    hover:border-primary/30 placeholder:text-transparent"
-                />
-              </div>
+                {/* Message field */}
+                <div className="relative group">
+                  <label 
+                    htmlFor="message" 
+                    className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
+                      focusedField === 'message' || formData.message 
+                        ? '-top-2.5 text-xs text-primary bg-card px-2' 
+                        : 'top-4 text-muted-foreground'
+                    }`}
+                  >
+                    {'// '}Your Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('message')}
+                    onBlur={() => setFocusedField(null)}
+                    rows={5}
+                    required
+                    className="pt-5 bg-background/50 border-primary/20 text-foreground rounded-xl resize-none
+                      focus:border-primary/50 focus:bg-background/80 transition-all duration-300
+                      hover:border-primary/30 placeholder:text-transparent"
+                  />
+                </div>
 
-              {/* Submit button */}
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl font-medium
-                  transition-all duration-300 neon-glow hover:scale-[1.02]
-                  disabled:opacity-50 disabled:cursor-not-allowed group"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center gap-2">
-                    <span className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                    Transmitting...
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    Send Message
-                    <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                )}
-              </Button>
-            </form>
-          </div>
+                {/* Submit button */}
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl font-medium
+                    transition-all duration-300 neon-glow hover:scale-[1.02]
+                    disabled:opacity-50 disabled:cursor-not-allowed group"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <span className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      Transmitting...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      Send Message
+                      <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  )}
+                </Button>
+              </form>
+            </div>
+          </ScrollReveal>
 
           {/* Social links */}
-          <div className="lg:col-span-2 space-y-4">
-            <p className="text-muted-foreground text-sm mb-6">Or reach out directly through:</p>
-            
-            {socialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                target={link.name !== "Email" ? "_blank" : undefined}
-                rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
-                className="group flex items-center gap-4 p-4 rounded-xl glass-card
-                  hover-glow transition-all duration-300 hover:scale-[1.02]"
-              >
-                <div className="w-12 h-12 rounded-xl glass neon-border flex items-center justify-center
-                  group-hover:bg-primary/20 transition-colors duration-300">
-                  <link.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-foreground font-medium group-hover:text-primary transition-colors">{link.name}</p>
-                  <p className="text-muted-foreground text-sm truncate">{link.username}</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary 
-                  transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            ))}
-          </div>
+          <ScrollReveal delay={200}>
+            <div className="lg:col-span-2 space-y-4">
+              <p className="text-muted-foreground text-sm mb-6">Or reach out directly through:</p>
+              
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target={link.name !== "Email" ? "_blank" : undefined}
+                  rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
+                  className="group flex items-center gap-4 p-4 rounded-xl glass-card
+                    hover-glow transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <div className="w-12 h-12 rounded-xl glass neon-border flex items-center justify-center
+                    group-hover:bg-primary/20 transition-colors duration-300">
+                    <link.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-foreground font-medium group-hover:text-primary transition-colors">{link.name}</p>
+                    <p className="text-muted-foreground text-sm truncate">{link.username}</p>
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary 
+                    transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

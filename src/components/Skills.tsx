@@ -1,5 +1,5 @@
 import { Cpu } from "lucide-react";
-
+import { ScrollReveal } from "./ScrollReveal";
 const skills = [
   { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
@@ -26,53 +26,55 @@ export const Skills = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
-        <div className="mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
-            <Cpu className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">Tech Stack</span>
+        <ScrollReveal>
+          <div className="mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
+              <Cpu className="w-4 h-4 text-primary" />
+              <span className="text-sm text-primary font-medium">Tech Stack</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
+              Skills & <span className="gradient-text animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--secondary)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent">Expertise</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl md:text-lg">
+              Technologies and tools I use to bring ideas to life.
+            </p>
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Skills & <span className="gradient-text">Expertise</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl md:text-lg">
-            Technologies and tools I use to bring ideas to life.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Skills grid */}
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
           {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="group relative"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <div className="glass-card rounded-2xl p-6 flex flex-col items-center gap-4 
-                hover-glow transition-all duration-300 hover:scale-105 hover:-translate-y-1">
-                {/* Icon container with glow */}
-                <div className="relative">
-                  <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="w-12 h-12 flex items-center justify-center relative">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className={`w-10 h-10 ${skill.invert ? 'invert' : ''} 
-                        drop-shadow-[0_0_8px_hsl(var(--primary)/0.3)] group-hover:drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)]
-                        transition-all duration-300`}
-                    />
+            <ScrollReveal key={skill.name} delay={index * 50}>
+              <div
+                className="group relative"
+              >
+                <div className="glass-card rounded-2xl p-6 flex flex-col items-center gap-4 
+                  hover-glow transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                  {/* Icon container with glow */}
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="w-12 h-12 flex items-center justify-center relative">
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className={`w-10 h-10 ${skill.invert ? 'invert' : ''} 
+                          drop-shadow-[0_0_8px_hsl(var(--primary)/0.3)] group-hover:drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)]
+                          transition-all duration-300`}
+                      />
+                    </div>
                   </div>
+                  
+                  {/* Skill name */}
+                  <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors text-center font-medium">
+                    {skill.name}
+                  </span>
                 </div>
                 
-                {/* Skill name */}
-                <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors text-center font-medium">
-                  {skill.name}
-                </span>
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-primary/30 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-secondary/30 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-2 h-2 border-l-2 border-t-2 border-primary/30 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-0 right-0 w-2 h-2 border-r-2 border-b-2 border-secondary/30 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
