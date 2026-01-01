@@ -263,6 +263,11 @@
   100% { background-position: 0% 50%; }
 }
 
+@keyframes text-shimmer {
+  0% { background-position: -250% 0; }
+  100% { background-position: 250% 0; }
+}
+
 .floating {
   animation: float 6s ease-in-out infinite;
 }
@@ -293,6 +298,10 @@
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
+}
+
+.animate-text-shimmer {
+  animation: text-shimmer 3s ease-in-out infinite;
 }
 
 /* Custom scrollbar */

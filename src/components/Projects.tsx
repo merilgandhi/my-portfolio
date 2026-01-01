@@ -1,8 +1,18 @@
 import { Github, ExternalLink, Folder, ArrowUpRight } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 
 const projects = [
   {
     id: 1,
+    title: "Portfolio Website",
+    description:
+      "A sleek, futuristic personal portfolio showcasing my work and skills. Built with React, TypeScript, and Tailwind CSS featuring glassmorphism design, custom animations, neon accents, and a fully responsive layout with modern UI/UX patterns.",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Supabase"],
+    githubUrl: "https://github.com/merilgandhi",
+    liveUrl: "https://merilgandhi.dev/",
+  },
+  {
+    id: 2,
     title: "DIY Repair Hub",
     description:
       "Developed a React.js platform for DIY enthusiasts featuring a comprehensive guide management system with search/filtering capabilities, dynamic user profiles displaying real-time statistics, and an AI-powered chat assistant. Built responsive UI with Tailwind CSS and smooth animations using Framer Motion, implemented state management with Context API, and created SPA navigation with React Router for guide details and user authentication flows.",
@@ -22,79 +32,82 @@ export const Projects = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
-        <div className="mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
-            <Folder className="w-4 h-4 text-secondary" />
-            <span className="text-sm text-secondary font-medium">Portfolio</span>
+        <ScrollReveal>
+          <div className="mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
+              <Folder className="w-4 h-4 text-secondary" />
+              <span className="text-sm text-secondary font-medium">Portfolio</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Proof of <span className="gradient-text animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--secondary)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent">Work</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl">
+              Projects I've built to solve real problems.
+            </p>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Proof of <span className="gradient-text">Work</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl">
-            Projects I've built to solve real problems.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Projects grid */}
         <div className="space-y-8">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group glass-card rounded-3xl p-8 md:p-10 hover-glow transition-all duration-500 relative overflow-hidden"
-            >
-              {/* Decorative corner elements */}
-              <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/40 rounded-tl-xl" />
-              <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-secondary/40 rounded-br-xl" />
-              
-              {/* Project number */}
-              <div className="absolute top-6 right-6 font-display text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors mt-2">
-                0{project.id}
-              </div>
-              <div className="relative z-10">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex items-center gap-3 md:mr-16">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-xl glass neon-border hover:bg-primary/20 transition-all duration-300 group/btn"
-                      aria-label="View on GitHub"
-                    >
-                      <Github className="w-5 h-5 text-muted-foreground group-hover/btn:text-primary transition-colors" />
-                    </a>
-                    {project.liveUrl !== "#" && (
+          {projects.map((project, index) => (
+            <ScrollReveal key={project.id} delay={index * 150}>
+              <div
+                className="group glass-card rounded-3xl p-8 md:p-10 hover-glow transition-all duration-500 relative overflow-hidden"
+              >
+                {/* Decorative corner elements */}
+                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/40 rounded-tl-xl" />
+                <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-secondary/40 rounded-br-xl" />
+                
+                {/* Project number */}
+                <div className="absolute top-6 right-6 font-display text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors mt-2">
+                  0{project.id}
+                </div>
+                <div className="relative z-10">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
+                    <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="flex items-center gap-3 md:mr-16">
                       <a
-                        href={project.liveUrl}
+                        href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 rounded-xl glass neon-border hover:bg-secondary/20 transition-all duration-300 group/btn"
-                        aria-label="View live demo"
+                        className="p-3 rounded-xl glass neon-border hover:bg-primary/20 transition-all duration-300 group/btn"
+                        aria-label="View on GitHub"
                       >
-                        <ExternalLink className="w-5 h-5 text-muted-foreground group-hover/btn:text-secondary transition-colors" />
+                        <Github className="w-5 h-5 text-muted-foreground group-hover/btn:text-primary transition-colors" />
                       </a>
-                    )}
+                      {project.liveUrl !== "#" && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-3 rounded-xl glass neon-border hover:bg-secondary/20 transition-all duration-300 group/btn"
+                          aria-label="View live demo"
+                        >
+                          <ExternalLink className="w-5 h-5 text-muted-foreground group-hover/btn:text-secondary transition-colors" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 rounded-xl text-sm glass text-primary/80 border border-primary/20
+                          hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                
-                <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 rounded-xl text-sm glass text-primary/80 border border-primary/20
-                        hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

@@ -1,4 +1,5 @@
 import { User, Code, Rocket, Coffee } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 
 const highlights = [
   { icon: Code, label: "Clean Code", description: "Writing maintainable solutions" },
@@ -15,42 +16,50 @@ export const About = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
-        <div className="mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
-            <User className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">About</span>
+        <ScrollReveal>
+          <div className="mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
+              <User className="w-4 h-4 text-primary" />
+              <span className="text-sm text-primary font-medium">About</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              About <span className="gradient-text animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--secondary)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent">Me</span>
+            </h2>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            About <span className="gradient-text">Me</span>
-          </h2>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Main content */}
           <div className="lg:col-span-3 space-y-6">
-            <div className="glass-card rounded-2xl p-8 hover-glow transition-all duration-300">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a passionate web developer focused on building clean, responsive, and 
-                <span className="text-primary"> user-friendly</span> web applications. I enjoy transforming 
-                ideas into meaningful digital experiences using modern technologies and best development practices.
-              </p>
-            </div>
+            <ScrollReveal delay={100}>
+              <div className="glass-card rounded-2xl p-8 hover-glow transition-all duration-300">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  I'm a passionate web developer focused on building clean, responsive, and 
+                  <span className="text-primary"> user-friendly</span> web applications. I enjoy transforming 
+                  ideas into meaningful digital experiences using modern technologies and best development practices.
+                </p>
+              </div>
+            </ScrollReveal>
             
-            <div className="glass-card rounded-2xl p-8 hover-glow transition-all duration-300">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Currently working as an <span className="text-secondary font-semibold">Intern</span>, 
-                I'm constantly learning and growing in the field of web development. I believe in writing 
-                code that not only works but is also <span className="text-primary">maintainable and scalable</span>.
-              </p>
-            </div>
+            <ScrollReveal delay={200}>
+              <div className="glass-card rounded-2xl p-8 hover-glow transition-all duration-300">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Currently working as an <span className="text-secondary font-semibold">Intern</span>, 
+                  I'm constantly learning and growing in the field of web development. I believe in writing 
+                  code that not only works but is also <span className="text-primary">maintainable and scalable</span>.
+                </p>
+              </div>
+            </ScrollReveal>
 
-            <div className="glass-card rounded-2xl p-8 hover-glow transition-all duration-300">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to 
-                <span className="text-primary"> open-source projects</span>, or learning about the 
-                latest trends in web development.
-              </p>
-            </div>
+            <ScrollReveal delay={300}>
+              <div className="glass-card rounded-2xl p-8 hover-glow transition-all duration-300">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  When I'm not coding, you can find me exploring new technologies, contributing to 
+                  <span className="text-primary"> open-source projects</span>, or learning about the 
+                  latest trends in web development.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Highlights sidebar */}

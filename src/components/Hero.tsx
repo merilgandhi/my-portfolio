@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Terminal, Zap } from "lucide-react";
+import { AnimatedText } from "./AnimatedText";
 
 const HexagonGrid = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
@@ -116,8 +117,10 @@ export const Hero = () => {
       <div className="max-w-4xl relative z-10">
         {/* Main heading */}
         <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6 px-10">
-          <span className="text-foreground">Hi, I'm </span>
-          <span className="gradient-text flicker">Meril</span>
+          <AnimatedText text="Hi, I'm " className="text-foreground" />
+          <span className="gradient-text flicker inline-block animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--secondary)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent">
+            <AnimatedText text="Meril" delay={300} />
+          </span>
         </h1>
 
         {/* Subtitle with terminal style */}
