@@ -1,11 +1,5 @@
-import { User, Code, Rocket, Coffee } from "lucide-react";
+import { User } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
-
-const highlights = [
-  { icon: Code, label: "Clean Code", description: "Writing maintainable solutions" },
-  { icon: Rocket, label: "Fast Learner", description: "Adapting to new technologies" },
-  { icon: Coffee, label: "Dedicated", description: "Passionate about development" },
-];
 
 export const About = () => {
   return (
@@ -62,35 +56,36 @@ export const About = () => {
             </ScrollReveal>
           </div>
 
-          {/* Highlights sidebar */}
-          <div className="lg:col-span-2 space-y-4 p-12">
-            <div className="glass-card rounded-2xl p-6 hover-glow transition-all duration-300">
-              <h3 className="font-display text-lg font-semibold text-foreground mb-6">
-                {'// '}<span className="text-primary">Core Values</span>
-              </h3>
-              
-              <div className="space-y-4">
-                {highlights.map((item) => (
-                  <div
-                    key={item.label}
-                    className="group flex items-start gap-4 p-4 rounded-xl hover:bg-primary/5 transition-all duration-300"
-                  >
-                    <div className="w-10 h-10 rounded-lg glass neon-border flex items-center justify-center flex-shrink-0
-                      group-hover:bg-primary/20 transition-all duration-300">
-                      <item.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-foreground font-medium group-hover:text-primary transition-colors">
-                        {item.label}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
+          {/* Profile Image */}
+          <div className="lg:col-span-2 flex items-center justify-center">
+            <ScrollReveal delay={200}>
+              <div className="relative group">
+                {/* Glowing background */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent-foreground/20 to-primary/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                
+                {/* Decorative elements */}
+                <div className="absolute -inset-2 rounded-3xl border border-primary/20" />
+                <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-primary/50 rounded-tl-lg" />
+                <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-accent-foreground/50 rounded-br-lg" />
+                
+                {/* Image container */}
+                <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 neon-glow">
+                  <img 
+                    src="/Meril_gandhi.jpeg" 
+                    alt="Meril Gandhi"
+                    className="w-72 h-96 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
+                  
+                  {/* Name overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="font-display text-lg font-semibold text-foreground">Meril Gandhi</p>
+                    <p className="text-sm text-primary">Web Developer</p>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>
