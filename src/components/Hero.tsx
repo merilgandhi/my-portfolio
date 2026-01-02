@@ -118,12 +118,8 @@ export const Hero = () => {
         {/* Main heading */}
         <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6 px-10">
           <AnimatedText text="Hi, I'm " className="text-foreground" />
-          <span className="inline-block">
-            <AnimatedText 
-              text="Meril" 
-              delay={400} 
-              className="animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--secondary)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent flicker"
-            />
+          <span className="inline-block text-primary animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--accent-foreground)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent flicker">
+            Meril
           </span>
         </h1>
 
