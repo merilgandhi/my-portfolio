@@ -114,79 +114,49 @@ export const Hero = () => {
       <HexagonGrid />
       <FloatingIcons />
 
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16 relative z-10">
-        {/* Profile Image */}
-        <div className="relative group order-first lg:order-last flex-shrink-0">
-          {/* Glowing background */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-accent-foreground/30 to-primary/30 rounded-full blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 animate-pulse" />
-          
-          {/* Decorative ring */}
-          <div className="absolute -inset-2 rounded-full border-2 border-primary/30 animate-spin" style={{ animationDuration: '20s' }} />
-          <div className="absolute -inset-4 rounded-full border border-accent-foreground/20 animate-spin" style={{ animationDuration: '30s', animationDirection: 'reverse' }} />
-          
-          {/* Image container */}
-          <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-primary/50 neon-glow">
-            <img 
-              src="/Meril_gandhi.jpeg" 
-              alt="Meril Gandhi"
-              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-            />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
-          
-          {/* Status indicator */}
-          <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-primary/30">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-xs text-foreground font-medium">Available</span>
-          </div>
+      <div className="max-w-4xl relative z-10">
+        {/* Main heading */}
+        <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6 px-10">
+          <AnimatedText text="Hi, I'm " className="text-foreground" />
+          <span className="inline-block text-primary animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--accent-foreground)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent flicker">
+            Meril
+          </span>
+        </h1>
+
+        {/* Subtitle with terminal style */}
+        <div className="flex items-start gap-3 mb-6 px-10">
+          <Terminal className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+          <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+            <span className="text-primary">{'>'}</span> Web Developer passionate about building 
+            <span className="text-primary"> innovative</span> digital experiences with 
+            <span className="text-secondary"> modern technologies</span>
+          </p>
         </div>
 
-        {/* Text content */}
-        <div className="flex-1">
-          {/* Main heading */}
-          <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6 px-4 lg:px-10 text-center lg:text-left">
-            <AnimatedText text="Hi, I'm " className="text-foreground" />
-            <span className="inline-block text-primary animate-text-shimmer bg-[linear-gradient(110deg,hsl(var(--primary)),45%,hsl(var(--accent-foreground)),55%,hsl(var(--primary)))] bg-[length:250%_100%] bg-clip-text text-transparent flicker">
-              Meril
-            </span>
-          </h1>
+        {/* Sub text */}
+        <p className="text-sm text-muted-foreground/70 mb-8 flex items-center gap-2 px-10">
+          <Zap className="w-4 h-4 text-secondary" />
+          Exploring new technologies & building projects that make an impact
+        </p>
 
-          {/* Subtitle with terminal style */}
-          <div className="flex items-start gap-3 mb-6 px-4 lg:px-10 justify-center lg:justify-start">
-            <Terminal className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed text-center lg:text-left">
-              <span className="text-primary">{'>'}</span> Web Developer passionate about building 
-              <span className="text-primary"> innovative</span> digital experiences with 
-              <span className="text-secondary"> modern technologies</span>
-            </p>
-          </div>
-
-          {/* Sub text */}
-          <p className="text-sm text-muted-foreground/70 mb-8 flex items-center gap-2 px-4 lg:px-10 justify-center lg:justify-start">
-            <Zap className="w-4 h-4 text-secondary" />
-            Exploring new technologies & building projects that make an impact
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 px-4 lg:px-10 justify-center lg:justify-start">
-            <Button
-              onClick={scrollToContact}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl px-8 h-12 font-medium
-                neon-glow transition-all duration-300 hover:scale-105 group"
-            >
-              Get in touch
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 
-                rounded-xl px-8 h-12 font-medium transition-all duration-300"
-            >
-              View Projects
-            </Button>
-          </div>
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap gap-4 px-10">
+          <Button
+            onClick={scrollToContact}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl px-8 h-12 font-medium
+              neon-glow transition-all duration-300 hover:scale-105 group"
+          >
+            Get in touch
+            <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+            className="border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 
+              rounded-xl px-8 h-12 font-medium transition-all duration-300"
+          >
+            View Projects
+          </Button>
         </div>
       </div>
     </section>
