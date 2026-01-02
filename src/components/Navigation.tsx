@@ -1,4 +1,5 @@
-import { Home, Code2, Building2, BookOpen, Mail, FileText, Github, Linkedin } from "lucide-react";
+import { Home, Code2, Building2, BookOpen, Mail, FileText, Github, Linkedin, Sun, Moon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { id: "hero", icon: Home, label: "Home" },
@@ -15,6 +16,23 @@ const socialItems = [
 ];
 
 export const Navigation = () => {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setIsDark(isDarkMode);
+  }, []);
+
+  const toggleTheme = () => {
+    const newMode = !isDark;
+    setIsDark(newMode);
+    if (newMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -63,6 +81,27 @@ export const Navigation = () => {
             </span>
           </a>
         ))}
+
+        <div className="w-px h-6 bg-primary/20 mx-2" />
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-3 rounded-xl hover:bg-primary/10 transition-all duration-300 group relative hover-glow"
+          aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {isDark ? (
+            <Sun className="w-5 h-5 text-muted-foreground group-hover:text-yellow-400 transition-colors" />
+          ) : (
+            <Moon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+          )}
+          
+          {/* Tooltip */}
+          <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-card text-xs text-foreground 
+            rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap neon-border">
+            {isDark ? "Light Mode" : "Dark Mode"}
+          </span>
+        </button>
       </div>
     </nav>
   );
